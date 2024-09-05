@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Main {
+    public String solution(String str) {
+        StringBuilder answer = new StringBuilder();
+        Set<Character> seen = new HashSet<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            char currentChar = str.charAt(i);
+            if (!seen.contains(currentChar)) {
+                seen.add(currentChar);
+                answer.append(currentChar);
+            }
+        }
+        return answer.toString();
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String str = kb.next();
+        System.out.print(T.solution(str));
+    }
+}

@@ -1,0 +1,52 @@
+import java.util.*;
+class Main {	
+	public String solution(String str){
+		String answer="";
+		int m=Integer.MIN_VALUE;
+		String[] s = str.split(" ");
+		for(String x : s){
+			int len=x.length();
+			if(len>m){
+				m=len;
+				answer=x;
+			}
+		}
+		return answer;
+	}
+
+	public static void main(String[] args){
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		String str=kb.nextLine();
+		System.out.print(T.solution(str));
+	}
+}
+
+
+
+
+
+import java.util.*;
+
+class Main {
+    public String solution(String str) {
+        String[] strings = str.split(" "); // 문자열을 공백으로 분리
+        String longest = ""; // 가장 긴 문자열을 저장할 변수
+
+        for (int i = 0; i < strings.length; i++) {
+            if (strings[i].length() > longest.length()) { // 현재 문자열의 길이가 가장 긴 문자열보다 긴 경우
+                longest = strings[i]; // 가장 긴 문자열로 업데이트
+            }
+        }
+
+        return longest; // 가장 긴 문자열 반환
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String str = kb.nextLine(); // 한 줄의 문자열을 입력 받음
+
+        System.out.println(T.solution(str));
+    }
+}
