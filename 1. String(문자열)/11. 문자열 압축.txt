@@ -1,0 +1,71 @@
+import java.util.*;
+class Main {	
+	public String solution(String s){
+		String answer="";
+		s=s+" ";
+		int cnt=1;
+		for(int i=0; i<s.length()-1; i++){
+			if(s.charAt(i)==s.charAt(i+1)) cnt++;
+			else{
+				answer+=s.charAt(i);
+				if(cnt>1) answer+=String.valueOf(cnt);
+				cnt=1;
+			}
+		}
+		return answer;
+	}
+
+	public static void main(String[] args){
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		String str=kb.next();
+		System.out.println(T.solution(str));
+	}
+}
+
+
+
+
+
+package org.example;
+
+import java.util.*;
+
+class Main {
+    public String solution(String str) {
+        StringBuilder sb = new StringBuilder();  // 결과를 저장할 StringBuilder
+        int count = 1;  // 현재 문자의 반복 횟수
+        char currentChar = str.charAt(0);  // 문자열의 첫 번째 문자
+        
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == currentChar) {
+                count++;  // 현재 문자가 같으면 반복 횟수 증가
+            } else {
+                // 현재 문자가 바뀌면 결과에 추가
+                sb.append(currentChar);
+                if (count > 1) {
+                    sb.append(count);
+                }
+                // 새로운 문자와 반복 횟수 초기화
+                currentChar = str.charAt(i);
+                count = 1;
+            }
+        }
+        
+        // 마지막 문자 그룹 추가
+        sb.append(currentChar);
+        if (count > 1) {
+            sb.append(count);
+        }
+
+        return sb.toString();  // 최종 결과를 String으로 반환
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+
+        String str = kb.nextLine();  // 공백이 포함될 수 있으므로 nextLine() 사용
+        System.out.println(T.solution(str));
+    }
+}
