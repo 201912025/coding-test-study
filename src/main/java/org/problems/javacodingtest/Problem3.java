@@ -33,3 +33,31 @@ strs[i] = chars.toString();
 chars.toString() 은 char[] 객체의 아이덴티티(hashcode) 같은 걸 찍어주는 메서드라, [C@3b9a45b3 같은 결과가 나옵니다.
 → 올바른 변환은 strs[i] = new String(chars);
  */
+
+
+/*
+class Main {
+	public ArrayList<String> solution(int n, String[] str){
+		ArrayList<String> answer=new ArrayList<>();
+		for(String x : str){
+			String tmp=new StringBuilder(x).reverse().toString();
+			answer.add(tmp);
+		}
+		return answer;
+	}
+
+	public static void main(String[] args){
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		int n=kb.nextInt();
+		String[] str=new String[n];
+		for(int i=0; i<n; i++){
+			str[i]=kb.next();
+		}
+		for(String x : T.solution(n, str)){
+			System.out.println(x);
+		}
+	}
+}
+
+ */
