@@ -7,10 +7,9 @@ public class Problem10 {
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
-        int[][] map = new int[n + 2][n + 2];
-
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n; j++) {
+        int[][] map = new int[n+2][n+2];
+        for (int i = 1; i <= n; i++){
+            for (int j = 1; j <= n; j++){
                 map[i][j] = sc.nextInt();
             }
         }
