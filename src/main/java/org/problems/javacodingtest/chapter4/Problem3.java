@@ -5,22 +5,28 @@ import java.util.Scanner;
 public class Problem3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int k = sc.nextInt();
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+        int[] sales = new int[N];
+        int max = 0;
+        int count = 0;
+
+        for (int i = 0; i < N; i++) {
+            sales[i] = Integer.parseInt(sc.next());
         }
 
-        int sum = 0;
-        for (int i = 0; i < k; i++) sum += arr[i];
-        int answer = sum;
-
-        for (int i = k; i < n; i++) {
-            sum += arr[i] - arr[i - k];
-            answer = Math.max(answer, sum);
+        for (int i = 0; i < K; i++) {
+            max += sales[i];
+            count += sales[i];
         }
 
-        System.out.println(answer);
+        for (int i = 1; i < N + 1 - K; i++) {
+            count = count - sales[i - 1] + sales[i + K - 1];
+            if (count > max) {
+                max = count;
+            }
+        }
+
+        System.out.println(max);
     }
 }
