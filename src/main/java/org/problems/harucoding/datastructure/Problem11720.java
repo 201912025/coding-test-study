@@ -2,7 +2,7 @@ package org.problems.harucoding.datastructure;
 
 import java.util.Scanner;
 
-public class Problem1 {
+public class Problem11720 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
