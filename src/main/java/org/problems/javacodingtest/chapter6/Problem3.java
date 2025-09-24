@@ -7,38 +7,51 @@ public class Problem3 {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
-        int[][] board = new int[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+        int N = sc.nextInt();
+        int [][] board = new int [N][N];
+
+        for (int i =0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 board[i][j] = sc.nextInt();
             }
         }
 
-        int m = sc.nextInt();
-        int[] moves = new int[m];
-        for (int i = 0; i < m; i++) moves[i] = sc.nextInt();
+        int M = sc.nextInt();
+        int [] moves = new int [M];
+        for (int i = 0; i < M; i++) {
+            moves[i] = sc.nextInt();
+        }
 
-        int answer = 0;
+        int count = 0;
         Stack<Integer> stack = new Stack<>();
 
-        for (int pos : moves) {
-            for (int i = 0; i < n; i++) {
-                if (board[i][pos - 1] != 0) {
-                    int tmp = board[i][pos - 1];
-                    board[i][pos - 1] = 0;
-
-                    if (!stack.isEmpty() && stack.peek() == tmp) {
-                        stack.pop();
-                        answer += 2;
-                    } else {
-                        stack.push(tmp);
-                    }
+        for (int move : moves) {
+            int doll = -1;
+            for (int i = 0; i< N; i++) {
+                int pick = board[i][move-1];
+                if (pick !=0) {
+                    doll = pick;
+                    board[i][move-1] = 0;
                     break;
+                }
+            }
+
+            if (doll == -1) continue;
+
+            if(stack.empty()) {
+                stack.push(doll);
+            }
+            else if (!stack.empty()) {
+                if (stack.peek() == doll) {
+                    count += 2;
+                    stack.pop();
+                }
+                else if (stack.peek() != doll) {
+                    stack.push(doll);
                 }
             }
         }
 
-        System.out.println(answer);
+        System.out.println(count);
     }
 }
