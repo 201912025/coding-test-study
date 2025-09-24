@@ -21,38 +21,52 @@ public class Problem1 {
 
 
 /*
-- 각 자연수 뒤집은 수가 소수이면 각소수 출력
-- 첫자리 0은 무시
+- 1부터 100사이의 자연수가 적힌 N장의 카드
+- 같은 숫자 카드 여러장 가능
+- 이중 3장을 뽑아 각 카드 적힌수 합한값 모든 경우 기록(중복제거) -> Set 기록
+- 이중 K 번째로 큰수 출력
 
 
-32 55 62 20 370 200 30 100
-23 55 26 2  73  2   3  1
 
-1이면 소수
-   1 2 3 4 5 6 7
-[1 1 1 1 0 1 0 1]
-
-7일 때 1제외 7로만 나눠져야 함 -> 하나라도 나눠지면 소수 x
+13 15 34 23 45 65 33 11 26 42
 
 
-1. 정수형 배열돌면서 뒤집고 소수면 바로 출력
-2. 2부터 N-1까지 돌면서 하나라도 나눠지면 소수 X
-3. 소수면 출력 아니면 출력 X
+1. 3중 반복문으로 돌린후 set으로 중복제거후 기록
+2.
 
 
-int [] inputs = new int [N];
-inputs 입력
+int N , int K 입력
+int [] cards = new int [N];
 
-List<Integer> reversed new
-for (int input : inputs) {
-    reversed.add(new StringBuilder(input.toString(input)).reverse().toString())
+for (int i = 0; i < N; i++) {
+    cards[i] = sc.nextInt();
 }
+Set<Integer> sums = new TreeSet<>(Collect);
 
-for (int x : reversed) {
-    for (int i=2; i*i <= x i++) {
-        if(x % i == 0) re
+for (int i = 0; i < N; i++) {
+    for (int j = i+1; j < N; j++) {
+        for (int K = j+1 ; k < N K++) {
+            sums.add(cards[i] + cards[j] +
+        }
     }
 }
+
+int count = 0;
+int result = -1;
+
+for (int sum : sums) {
+    count++;
+    if (count ==k {
+        result = sum
+        break;
+    }
+}
+
+
+
+
+
+
 
 
 
